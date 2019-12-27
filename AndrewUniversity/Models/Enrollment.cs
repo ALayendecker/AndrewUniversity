@@ -1,4 +1,5 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
+
 namespace AndrewUniversity.Models
 {
     public enum Grade
@@ -11,6 +12,7 @@ namespace AndrewUniversity.Models
         public int EnrollmentID { get; set; }
         public int CourseID { get; set; }
         public int StudentID { get; set; }
+        [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
 
         public virtual Course Course { get; set; }
