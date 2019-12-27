@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.SqlServer;
-
+using System.Data.Entity.Infrastructure.Interception;
 
 namespace AndrewUniversity.DAL
 {
@@ -9,6 +9,8 @@ namespace AndrewUniversity.DAL
         public SchoolConfiguration()
         {
             SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
+            DbInterception.Add(new SchoolInterceptorTransientErrors());
+            DbInterception.Add(new SchoolInterceptorLogging());
         }
     }
 }
