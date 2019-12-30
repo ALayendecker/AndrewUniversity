@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -98,7 +99,12 @@ namespace AndrewUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Instructor instructor = db.Instructors.Find(id);
+            Instructor instructor = db.Instructors
+        .Include(i => i.OfficeAssignment)
+        .Include(i => i.Courses)
+        .Where(i => i.ID == id)
+        .Single();
+            PopulateAssignedCourseData(instructor);
             if (instructor == null)
             {
                 return HttpNotFound();
@@ -107,21 +113,94 @@ namespace AndrewUniversity.Controllers
             return View(instructor);
         }
 
+        private void PopulateAssignedCourseData(Instructor instructor)
+        {
+            var allCourses = db.Courses;
+            var instructorCourses = new HashSet<int>(instructor.Courses.Select(c => c.CourseID));
+            var viewModel = new List<AssignedCourseData>();
+            foreach (var course in allCourses)
+            {
+                viewModel.Add(new AssignedCourseData
+                {
+                    CourseID = course.CourseID,
+                    Title = course.Title,
+                    Assigned = instructorCourses.Contains(course.CourseID)
+                });
+            }
+            ViewBag.Courses = viewModel;
+        }
+
         // POST: Instructor/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost, ActionName("Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,LastName,FirstMidName,HireDate")] Instructor instructor)
+        public ActionResult Edit(int? id, string[] selectedCourses)
         {
-            if (ModelState.IsValid)
+            if (id == null)
             {
-                db.Entry(instructor).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ViewBag.ID = new SelectList(db.OfficeAssignments, "InstructorID", "Location", instructor.ID);
-            return View(instructor);
+            var instructorToUpdate = db.Instructors
+               .Include(i => i.OfficeAssignment)
+               .Include(i => i.Courses)
+               .Where(i => i.ID == id)
+               .Single();
+
+            if (TryUpdateModel(instructorToUpdate, "",
+               new string[] { "LastName", "FirstMidName", "HireDate", "OfficeAssignment" }))
+            {
+                try
+                {
+                    if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment.Location))
+                    {
+                        instructorToUpdate.OfficeAssignment = null;
+                    }
+
+                    UpdateInstructorCourses(selectedCourses, instructorToUpdate);
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (RetryLimitExceededException /* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                }
+            }
+            PopulateAssignedCourseData(instructorToUpdate);
+            return View(instructorToUpdate);
+        }
+        private void UpdateInstructorCourses(string[] selectedCourses, Instructor instructorToUpdate)
+        {
+            if (selectedCourses == null)
+            {
+                instructorToUpdate.Courses = new List<Course>();
+                return;
+            }
+
+            var selectedCoursesHS = new HashSet<string>(selectedCourses);
+            var instructorCourses = new HashSet<int>
+                (instructorToUpdate.Courses.Select(c => c.CourseID));
+            foreach (var course in db.Courses)
+            {
+                if (selectedCoursesHS.Contains(course.CourseID.ToString()))
+                {
+                    if (!instructorCourses.Contains(course.CourseID))
+                    {
+                        instructorToUpdate.Courses.Add(course);
+                    }
+                }
+                else
+                {
+                    if (instructorCourses.Contains(course.CourseID))
+                    {
+                        instructorToUpdate.Courses.Remove(course);
+                    }
+                }
+            }
         }
 
         // GET: Instructor/Delete/5
@@ -144,8 +223,21 @@ namespace AndrewUniversity.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Instructor instructor = db.Instructors.Find(id);
+            Instructor instructor = db.Instructors
+              .Include(i => i.OfficeAssignment)
+              .Where(i => i.ID == id)
+              .Single();
+
             db.Instructors.Remove(instructor);
+
+            var department = db.Departments
+                .Where(d => d.InstructorID == id)
+                .SingleOrDefault();
+            if (department != null)
+            {
+                department.InstructorID = null;
+            }
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
