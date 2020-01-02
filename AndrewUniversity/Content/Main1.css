@@ -1,0 +1,21 @@
+﻿body {
+height: 100vh;
+padding-bottom: 0px;
+}
+
+/** {
+    border: 2px solid red;
+}*/
+
+.body-content{
+    height: 95%
+}
+
+footer{
+    margin-left: auto;
+    text-align: center;
+}
+
+.jumbotron{
+    text-align:center;
+}

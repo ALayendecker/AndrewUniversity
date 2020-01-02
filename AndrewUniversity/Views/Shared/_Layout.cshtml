@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Andrew University</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Main1.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -32,12 +33,10 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Andrew University</p>
-        </footer>
     </div>
-
+    <footer class="page-footer">
+        <p>&copy; @DateTime.Now.Year - Andrew University</p>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
