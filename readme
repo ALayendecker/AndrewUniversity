@@ -1,3 +1,0 @@
-New clones have to run the following command in PMC in order to correctly run locally
-
-Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
