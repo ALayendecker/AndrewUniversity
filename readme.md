@@ -66,7 +66,7 @@ Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
 
 ## Acknowledgements
 
-- [Created Using Microsoft Ducumentation: Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/)
+- [Created Using Microsoft Documentation: Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/)
 - [othneildrew - Best README Template](https://github.com/othneildrew/Best-README-Template)
 
 ## Contact
