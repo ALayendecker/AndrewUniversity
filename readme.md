@@ -56,25 +56,25 @@ Code addresses overposting.
 
 User will be able to Create, Edit, View, Delete various information for Courses, Students, Departments and Instructors by visiting the various pages provided.
 
-Home Page
+**Home Page**
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/HomeScreenshot.PNG?size=150">
 
-Create Students Page
+**Create Students Page**
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentCreateScreenshot.PNG?size=150">
 
-Students Page
+**Students Page**
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentsScreenshot.PNG?size=150">
 
-Instructor Page
+**Instructor Page**
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorsSelectScreenshot.PNG?size=150">
 
-Instructor Edit Page
+**Instructor Edit Page**
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
 
-Department Screenshot Page
+**Department Screenshot Page**
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
 
-Delete feature not shown to preserve database.
+Delete feature not shown.
 
 ### Installation
 
