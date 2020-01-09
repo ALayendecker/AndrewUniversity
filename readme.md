@@ -83,7 +83,7 @@ User will be able to Create, Edit, View, Delete various information for Courses,
 
 **Department Screenshot Page**
 
-<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/DepartmentScreenshot.PNG?size=150">
 <hr/>
 
 **Delete feature not shown.**
