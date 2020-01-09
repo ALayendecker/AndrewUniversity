@@ -56,7 +56,25 @@ Code addresses overposting.
 
 User will be able to Create, Edit, View, Delete various information for Courses, Students, Departments and Instructors by visiting the various pages provided.
 
+Home Page
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/HomeScreenshot.PNG?size=150">
+
+Create Students Page
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentCreateScreenshot.PNG?size=150">
+
+Students Page
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentsScreenshot.PNG?size=150">
+
+Instructor Page
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorsSelectScreenshot.PNG?size=150">
+
+Instructor Edit Page
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
+
+Department Screenshot Page
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
+
+Delete feature not shown to preserve database.
 
 ### Installation
 
@@ -70,6 +88,7 @@ Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
 
 ## Acknowledgements
 
+- Background image is a photoshopped version of the University of Arkansas Logo. Use of this logo is purely for educational purposes.
 - [Created Using Microsoft Documentation: Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/)
 - [othneildrew - Best README Template](https://github.com/othneildrew/Best-README-Template)
 
