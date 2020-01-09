@@ -59,28 +59,34 @@ User will be able to Create, Edit, View, Delete various information for Courses,
 **Home Page**
 
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/HomeScreenshot.PNG?size=150">
+<hr/>
 
 **Create Students Page**
 
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentCreateScreenshot.PNG?size=150">
+<hr/>
 
 **Students Page**
 
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentsScreenshot.PNG?size=150">
+<hr/>
 
 **Instructor Page**
 
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorsSelectScreenshot.PNG?size=150">
+<hr/>
 
 **Instructor Edit Page**
 
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
+<hr/>
 
 **Department Screenshot Page**
 
 <img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/InstructorEditScreenshot.PNG?size=150">
+<hr/>
 
-Delete feature not shown.
+**Delete feature not shown.**
 
 ### Installation
 
