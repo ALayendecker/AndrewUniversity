@@ -17,9 +17,10 @@
     height: 95%
 }
 
-footer{
+footer {
     margin-left: auto;
     text-align: center;
+    background: rgba(255, 255, 255, 0.40);
 }
 
 .jumbotron{
@@ -61,7 +62,7 @@ th{
 }
 
 .opacity-box {
-    background: rgba(255, 255, 255, 0.40);
+    background: rgba(255, 255, 255, 0.80);
     min-height: 25%;
 }
 
