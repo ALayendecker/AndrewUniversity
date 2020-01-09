@@ -33,6 +33,8 @@
 
 ## About The Project
 
+Full CRUD application built using C#.
+
 ### Built With
 
 - [VisualStudio](https://visualstudio.microsoft.com/)
@@ -45,14 +47,16 @@
 
 ## Organization
 
-App uses C# in ASP.NET and EF6 in an MVC 5 file structure using SQL Server Express LocalDB as our database.
-Code is written in a manner that prevents overposting and mass assignment attacks on the website.
+App uses C# in ASP.NET and EF6 in an MVC 5 file structure and using SQL Server Express LocalDB as our database.
+Code addresses overposting.
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
 User will be able to Create, Edit, View, Delete various information for Courses, Students, Departments and Instructors by visiting the various pages provided.
+
+<img src="https://github.com/ALayendecker/AndrewUniversity/blob/master/AndrewUniversity/Content/Images/StudentsScreenshot.PNG?size=150">
 
 ### Installation
 
